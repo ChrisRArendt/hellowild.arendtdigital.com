@@ -3,8 +3,6 @@ BODY{
 	font-family: sans-serif;
 	color: #333;
 	background: #357 url(../images/bg_texture1.png);
-	margin:0;
-	padding:0;
 }
 	A{
 		color: #F80;
