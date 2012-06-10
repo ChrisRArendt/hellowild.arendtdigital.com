@@ -38,9 +38,12 @@
 |
 */
 
-$route['default_controller'] = "pages/view/home";
-$route['pages/view/(:any)'] = "pages/view/$1";
-$route['404_override'] = '';
+$route["news/create"] = "news/create";
+$route["news/view/(:any)"] = "news/view/$1";
+$route["news"] = "news/index";
+$route["(:any)"] = "pages/view/$1";
+$route["default_controller"] = "pages/view";
+$route["404_override"] = '';
 
 
 /* End of file routes.php */
