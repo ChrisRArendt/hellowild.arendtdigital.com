@@ -9,14 +9,17 @@
 		public function index(){
 			$data["news"] = $this->News_model->get_news();
 			
-			if(empty($data["news"]))
+			if(empty($data["news"])) 
 				show_404();
-				
-			$data["title"] = "News Archive";
+			else 
+				for($i = 0; $i < count($data["news"]); $i++)
+					$data["news"][$i]["text"] = "<P>". substr($data["news"][$i]["text"], 0, 500) ."...</P>";
 			
-			$this->load->view("templates/header", $data);
-			$this->load->view("news/index", $data);
-			$this->load->view("templates/footer");
+			$data["title"] = "Front";
+			
+			$data["data"] = $data;
+			$data["page"] = "news/index";
+			$this->load->view("news/_shared", $data);
 		}
 		public function view($slug){
 			$data["news_item"] = $this->News_model->get_news($slug);
@@ -24,11 +27,11 @@
 			if(empty($data["news_item"]))
 				show_404();
 				
-			$data["title"] = $data["news_item"]["title"];
+			$data["title"] = "";
 			
-			$this->load->view("templates/header", $data);
-			$this->load->view("news/view", $data);
-			$this->load->view("templates/footer");
+			$data["data"] = $data;
+			$data["page"] = "news/view";
+			$this->load->view("news/_shared", $data);
 		}
 		
 		public function create(){
@@ -41,13 +44,15 @@
 			$this->form_validation->set_rules("text", "text", "required");
 			
 			if($this->form_validation->run() === FALSE){
-				$this->load->view("templates/header", $data);
-				$this->load->view("news/create");
-				$this->load->view("templates/footer");
+				$data["data"] = $data;
+				$data["page"] = "news/create";
+				$this->load->view("news/_shared", $data);
 			}
 			else{
 				$this->News_model->set_news();
-				$this->load->view("news/success");
+				$data["data"] = $data;
+				$data["page"] = "news/success";
+				$this->load->view("news/_shared", $data);
 			}
 		}
 	}

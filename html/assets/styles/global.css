@@ -1,0 +1,135 @@
+BODY{
+	font-size: .9em;
+	font-family: sans-serif;
+	color: #333;
+	background: #357 url(../images/bg_texture1.png);
+}
+	A{
+		color: #F80;
+	}
+	A:hover{
+		background-color:rgba(0,0,0,.1);
+	}
+	SMALL{
+		display:block;
+	}
+	H1, H2, H3, H4, H5, H6{
+		color:#024A68;
+		margin-left:20px;
+		margin: 0;
+		padding: 0;
+	}
+	.centering{
+		position:absolute;
+		left:50%;
+		margin-left:-130px;
+		width:500px;
+		background:#EEE;
+		min-height:100%;
+		padding: 0 20px;
+	}
+	
+	
+	#head{} 
+		#head H1{
+			position:absolute;
+			left:-280px;
+			top:140px;
+			color:#FFF;
+			margin: 0 -20px;
+			padding: 50px 20px 30px 20px;
+			width: 260px;
+			font-size: 5.5em;
+			text-align: right;
+		}
+			#head H1 A{			
+				color:inherit;
+				text-decoration: none;
+			}
+			#head H1 SMALL{
+				font-size:.2em;
+			}
+		#head NAV UL{
+			margin: 0;
+			padding: 30px 0;
+		}
+			#head NAV UL LI{
+				font-size:.3em;
+			}
+				#head NAV UL LI A{
+					color: #F80;
+				}
+	#content{
+	}
+		#content P{
+			line-height: 1.35em;
+		}
+		#content BLOCKQUOTE{
+			border-left: 4px solid #CCC;	
+			padding-left: 20px;
+			margin-left: 10px;
+		}
+		#content H2{
+			font-size: 2em;
+			padding: 100px 20px 10px 20px;
+			margin: 0 -20px;
+			background: #0772A1;
+			color: #fff;
+		}
+			#content H2 A{
+				color: inherit;
+				text-decoration: none;
+			}
+			#content NAV{
+				margin: 6px 0 0 0;
+				float:right;
+			}
+			#content NAV UL{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+				#content NAV LI{
+					float: left;
+					margin-right:5px;
+					padding: 2px 8px;
+					font-size: .5em;
+					background-color: #fff;
+					color: #333;
+				}
+					#content NAV LI A{
+						color: inherit;
+						text-decoration: none;
+					}
+		#content H3{
+			font-size: 1.4em;
+			padding: 10px 20px;
+			margin: 0 -20px;
+			background: #fff;
+			color: #457;
+		}
+	#bottom{
+		background: #0772A1;
+		color:#DDE;
+		height: 100px;
+		margin: 40px -20px 0 -20px;
+		padding: 20px;
+		position: relative;
+	}
+		#bottom NAV UL{
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+			#bottom NAV LI{}
+				#bottom NAV LI A{
+					color:inherit;
+					text-decoration: none;
+				}
+		#bottom SMALL{
+			padding: 4px 0;
+			position: absolute;
+			bottom: 0;
+			font-size: .8em;
+			color:#024A68;
+		}

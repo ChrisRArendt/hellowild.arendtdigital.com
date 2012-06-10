@@ -1,0 +1,4 @@
+Options +FollowSymlinks
+RewriteEngine on
+RewriteRule ^html/assets - [L,NC]
+RewriteRule ^html html/index.php
