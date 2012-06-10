@@ -3,8 +3,8 @@
 	<HEAD>
 		<TITLE><?=$title?> - CodeIgniter 2 Tutorial</TITLE>
 		
-		<LINK href="<?=base_url()?>/assets/styles/normalize/normalize.css" type="text/css" rel="stylesheet" />
-		<LINK href="<?=base_url()?>/assets/styles/global.css" type="text/css" rel="stylesheet" />
+		<LINK href="<?=base_url()?>assets/styles/normalize/normalize.css" type="text/css" rel="stylesheet" />
+		<LINK href="<?=base_url()?>assets/styles/global.css" type="text/css" rel="stylesheet" />
 	</HEAD>
 	<BODY>
 		<DIV class="centering">
