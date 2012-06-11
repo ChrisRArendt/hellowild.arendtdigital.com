@@ -1,4 +1,5 @@
 <?
+
 	class News extends CI_controller{
 		public function __construct(){
 			parent::__construct();//run CI_controller constructor
@@ -13,9 +14,7 @@
 			$timeframe = 600; //delete every 10 minutes
 			if(isset($_SESSION["lastView"])){
 				$lv = (int)$_SESSION["lastView"];
-				echo "\n<br>time: " .$_SESSION["lastView"];
 				if( time() - $lv > $timeframe){
-					echo "\n<br>time diff: " .(time() - $lv);
 					$this->db->where_not_in("id", array(5,6,8));
 					$this->db->delete("news");
 				}
@@ -29,8 +28,53 @@
 			if(empty($data["news"])) 
 				show_404();
 			else 
-				for($i = 0; $i < count($data["news"]); $i++)
-					$data["news"][$i]["text"] = "<P>". substr($data["news"][$i]["text"], 0, 500) ."...</P>";
+				for($i = 0; $i < count($data["news"]); $i++){
+					$origText = $data["news"][$i]["text"];
+					$shortText = substr($origText, 0, 500);
+					if(strlen($origText) > 500)
+						$shortText .= "...";
+					
+					//Use Tidy to repair any empty tags created by substr
+					/*
+					$tidy = new tidy();
+					$tidy->parseString($shortText, array(
+						"show-body-only" => true), "utf8");
+					$tidy->cleanRepair();
+					$shortText = $tidy;*/
+					
+					
+					//Clean up open HTML tags
+					//This probably should be done and saved into the database, instead of using all this logic here... but oh well! :D
+					
+					// Strip slashes from the user input in case PHP has magic quotes enabled
+					if(get_magic_quotes_gpc())
+					    $shortText  = stripslashes($shortText);
+					
+					//echo __FILE__; // /Applications/MAMP/htdocs/HelloWild/application/controllers/news.php
+					///Applications/MAMP/htdocs/HelloWild/application/../news.php
+					echo "\n<br>" .__DIR__;
+					echo "\n<br>" .$_SERVER["DOCUMENT_ROOT"];
+					echo "\n<br>" .$_SERVER["PHP_SELF"];
+					//include_once('/Applications/MAMP/htdocs/HelloWild/application/libraries/HTMLawed/htmLawed.php');
+					//include_once('/Applications/MAMP/htdocs/HelloWild/application/libraries/HTMLawed/htmLawed.php');
+					include_once(__DIR__. "/../libraries/HTMLawed/htmLawed.php");
+					//$this->load->library('HTMLawed/htmLawed');
+					
+					// Set htmLawed; some configuration need not be specified because the default behavior is good enough
+					$config = array(
+					    'safe'=>1, // Dangerous elements and attributes thus not allowed
+					    'elements'=>'* -table -tr -td -th -tfoot -thead -col -colgroup -caption', // All except table-related are OK
+					    'deny_attribute'=>'class, id, style' // None of the allowed elements can have these attributes
+					);
+					$spec = 'a = -*, title, href'; // The 'a' element can have only these attributes
+					
+					// The filtering
+					$shortText = htmLawed($shortText, $config, $spec);
+					
+					
+					
+					$data["news"][$i]["text"] = $shortText;
+				}
 			
 			$data["title"] = "Front";
 			
@@ -52,13 +96,15 @@
 		}
 		
 		public function create(){
+			$_SESSION["lastView"] = time();
+			
 			$this->load->helper("form");
 			$this->load->library("form_validation");
 			
 			$data["title"] = "Create a news item";
 			
-			$this->form_validation->set_rules("title", "Title", "required");
-			$this->form_validation->set_rules("text", "text", "required");
+			$this->form_validation->set_rules("title", "Title", "trim|required|min_length[5]|max_length[30]|xss_clean");
+			$this->form_validation->set_rules("text", "text", "trim|required|min_length[10]|max_length[10000]|xss_clean");
 			
 			if($this->form_validation->run() === FALSE){
 				$data["data"] = $data;

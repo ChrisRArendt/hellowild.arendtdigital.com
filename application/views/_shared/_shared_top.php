@@ -5,6 +5,13 @@
 		
 		<LINK href="<?=base_url()?>assets/styles/Normalize/normalize.css" type="text/css" rel="stylesheet" />
 		<LINK href="<?=base_url()?>assets/styles/global.css" type="text/css" rel="stylesheet" />
+		<SCRIPT src="http://cdn.aloha-editor.org/current/lib/aloha.js"
+			data-aloha-plugins="common/format,
+								common/list,
+								common/link,
+								common/highlighteditables">
+		</SCRIPT>
+		<LINK href="http://cdn.aloha-editor.org/current/css/aloha.css" rel="stylesheet" type="text/css" />
 	</HEAD>
 	<BODY>
 		<DIV class="centering">

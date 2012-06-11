@@ -29,6 +29,32 @@ BODY{
 		padding: 0 20px;
 	}
 	
+	.create {}
+		.create FORM{
+			margin: 10px;
+		}
+		.create TEXTAREA{
+			min-height: 100px;
+		}
+		.create TEXTAREA, INPUT[type=text]{
+			width: 400px;
+		}
+		.create INPUT[type=text],
+		.create TEXTAREA{
+			border: 1px solid #CCC;
+			padding: 5px;
+			margin: 0;
+			background:transparent;
+			color: #333;
+			font-size: 1em;
+		}
+		.create LABEL{
+			display:block;
+			margin: 30px 0 10px 0;
+		}
+		.create INPUT[type=submit]{
+			margin: 30px 0 10px 0;
+		}
 	
 	#head{} 
 		#head H1{

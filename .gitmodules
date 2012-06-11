@@ -4,3 +4,6 @@
 [submodule "html/assets/ex/Aloha"]
 	path = html/assets/ex/Aloha
 	url = https://github.com/alohaeditor/Aloha-Editor.git
+[submodule "application/libraries/HTMLawed"]
+	path = application/libraries/HTMLawed
+	url = git://github.com/GerHobbelt/HTMLawed.git
