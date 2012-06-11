@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <HTML>
 	<HEAD>
+		<META name="viewport" width="device-width">
+		
 		<TITLE><?=$title?> - Hello, Wild.</TITLE>
 		
 		<LINK href="<?=base_url()?>assets/styles/Normalize/normalize.css" type="text/css" rel="stylesheet" />
