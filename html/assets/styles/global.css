@@ -2,8 +2,17 @@ BODY{
 	font-size: .9em;
 	font-family: sans-serif;
 	color: #333;
-	background: #357 url(../images/bg_texture1.png);
+	background: #333 url(../images/bg_texture1.png);
+	
+	
+	
+   margin:0;
+   padding:0;
+   height:100%;
 }
+	UL{
+		padding-left: 2em;
+	}
 	A{
 		color: #F80;
 	}
@@ -12,6 +21,14 @@ BODY{
 	}
 	SMALL{
 		display:block;
+	}
+	P, LI{
+		line-height: 1.35em;
+	}
+	BLOCKQUOTE{
+		border-left: 4px solid #CCC;	
+		padding-left: 20px;
+		margin-left: 10px;
 	}
 	H1, H2, H3, H4, H5, H6{
 		color:#024A68;
@@ -23,10 +40,10 @@ BODY{
 		position:absolute;
 		left:50%;
 		margin-left:-130px;
+		padding: 0 20px;
+		min-height:100%;
 		width:500px;
 		background:#EEE;
-		min-height:100%;
-		padding: 0 20px;
 	}
 	
 	.create {}
@@ -86,15 +103,8 @@ BODY{
 					color: #F80;
 				}
 	#content{
+		padding-bottom:150px;   /* Height of the footer */
 	}
-		#content P{
-			line-height: 1.35em;
-		}
-		#content BLOCKQUOTE{
-			border-left: 4px solid #CCC;	
-			padding-left: 20px;
-			margin-left: 10px;
-		}
 		#content H2{
 			font-size: 2em;
 			padding: 100px 20px 10px 20px;
@@ -130,7 +140,7 @@ BODY{
 		#content H3{
 			font-size: 1.4em;
 			padding: 10px 20px;
-			margin: 0 -20px;
+			margin: 40px -20px 0 -20px;
 			background: #fff;
 			color: #457;
 		}
@@ -138,9 +148,11 @@ BODY{
 		background: #0772A1;
 		color:#DDE;
 		height: 100px;
-		margin: 40px -20px 0 -20px;
+		margin: 0px 0 0 -20px;
 		padding: 20px;
-		position: relative;
+		width:500px;
+		position:absolute;
+		bottom:0;
 	}
 		#bottom NAV UL{
 			list-style: none;

@@ -15,7 +15,7 @@
 			if(isset($_SESSION["lastView"])){
 				$lv = (int)$_SESSION["lastView"];
 				if( time() - $lv > $timeframe){
-					$this->db->where_not_in("id", array(5,6,8));
+					$this->db->where_not_in("id", array(5,6,8,26));
 					$this->db->delete("news");
 				}
 			}
@@ -29,48 +29,27 @@
 				show_404();
 			else 
 				for($i = 0; $i < count($data["news"]); $i++){
+					//only distribute bite-sized chunks
 					$origText = $data["news"][$i]["text"];
-					$shortText = substr($origText, 0, 500);
-					if(strlen($origText) > 500)
+					$shortText = substr($origText, 0, 600);
+					if(strlen($origText) > 600)
 						$shortText .= "...";
 					
-					//Use Tidy to repair any empty tags created by substr
-					/*
-					$tidy = new tidy();
-					$tidy->parseString($shortText, array(
-						"show-body-only" => true), "utf8");
-					$tidy->cleanRepair();
-					$shortText = $tidy;*/
 					
-					
-					//Clean up open HTML tags
-					//This probably should be done and saved into the database, instead of using all this logic here... but oh well! :D
-					
-					// Strip slashes from the user input in case PHP has magic quotes enabled
-					if(get_magic_quotes_gpc())
-					    $shortText  = stripslashes($shortText);
-					
-					//echo __FILE__; // /Applications/MAMP/htdocs/HelloWild/application/controllers/news.php
-					///Applications/MAMP/htdocs/HelloWild/application/../news.php
-					echo "\n<br>" .__DIR__;
+					//Clean up open HTML tags. This probably should be done and saved into the database, instead of using all this logic here... but oh well! :D
 					$dir = __DIR__;
 					$dir = substr($dir, 0, strpos($dir,"application"));
-					echo "\n<br>".$dir;
-					//include_once('/Applications/MAMP/htdocs/HelloWild/application/libraries/HTMLawed/htmLawed.php');
-					//include_once('/Applications/MAMP/htdocs/HelloWild/application/libraries/HTMLawed/htmLawed.php');
-					include_once(__DIR__. "/../libraries/HTMLawed/htmLawed.php");
-					//$this->load->library('HTMLawed/htmLawed');
+					include_once($dir. "application/libraries/HTMLawed/htmLawed.php"); //include the HTMLawed library
 					
 					// Set htmLawed; some configuration need not be specified because the default behavior is good enough
 					$config = array(
-					    'safe'=>1, // Dangerous elements and attributes thus not allowed
-					    'elements'=>'* -table -tr -td -th -tfoot -thead -col -colgroup -caption', // All except table-related are OK
-					    'deny_attribute'=>'class, id, style' // None of the allowed elements can have these attributes
+					    'safe'=>1,
+					    'deny_attribute'=>'class, id, style'
 					);
 					$spec = 'a = -*, title, href'; // The 'a' element can have only these attributes
-					
-					// The filtering
-					$shortText = htmLawed($shortText, $config, $spec);
+					if(get_magic_quotes_gpc())
+					    $shortText  = stripslashes($shortText); // Strip slashes from the user input in case PHP has magic quotes enabled
+					$shortText = htmLawed($shortText, $config, $spec);// The filtering
 					
 					
 					
