@@ -1,3 +1,6 @@
 [submodule "html/assets/styles/Normalize"]
 	path = html/assets/styles/Normalize
 	url = https://github.com/necolas/normalize.css.git
+[submodule "html/assets/ex/Aloha"]
+	path = html/assets/ex/Aloha
+	url = https://github.com/alohaeditor/Aloha-Editor.git

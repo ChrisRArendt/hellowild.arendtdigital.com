@@ -4,9 +4,26 @@
 			parent::__construct();//run CI_controller constructor
 			$this->load->model("News_model");
 			$this->load->helper("url");
+			
+			session_start();
 		}
 		
 		public function index(){
+			//IF THE PAGE HASN'T BEEN ACCESSED IN A WHILE, WE NEED TO CLEAN EVERYTHING UP AND MAKE IT PRESENTABLE
+			$timeframe = 600; //delete every 10 minutes
+			if(isset($_SESSION["lastView"])){
+				$lv = (int)$_SESSION["lastView"];
+				echo "\n<br>time: " .$_SESSION["lastView"];
+				if( time() - $lv > $timeframe){
+					echo "\n<br>time diff: " .(time() - $lv);
+					$this->db->where_not_in("id", array(5,6,8));
+					$this->db->delete("news");
+				}
+			}
+			$_SESSION["lastView"] = time();
+			
+		
+			//BUILD OUT PAGE
 			$data["news"] = $this->News_model->get_news();
 			
 			if(empty($data["news"])) 

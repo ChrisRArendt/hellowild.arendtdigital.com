@@ -1,4 +1,5 @@
-<H2>Create a news item</H2>
+<H3>Create a news item</H3>
+<P>To create a new news item, please fill out the form below. Both the Title and Text fields are absolutely necessary.</P>
 <?=validation_errors();?>
 <?=form_open("news/create")?>
 	<DIV>
