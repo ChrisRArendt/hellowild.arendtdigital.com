@@ -53,8 +53,9 @@
 					//echo __FILE__; // /Applications/MAMP/htdocs/HelloWild/application/controllers/news.php
 					///Applications/MAMP/htdocs/HelloWild/application/../news.php
 					echo "\n<br>" .__DIR__;
-					echo "\n<br>" .$_SERVER["DOCUMENT_ROOT"];
-					echo "\n<br>" .$_SERVER["PHP_SELF"];
+					$dir = __DIR__;
+					$dir = substr($dir, 0, strpos($dir,"application"));
+					echo "\n<br>".$dir;
 					//include_once('/Applications/MAMP/htdocs/HelloWild/application/libraries/HTMLawed/htmLawed.php');
 					//include_once('/Applications/MAMP/htdocs/HelloWild/application/libraries/HTMLawed/htmLawed.php');
 					include_once(__DIR__. "/../libraries/HTMLawed/htmLawed.php");
