@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <HTML>
 	<HEAD>
-		<TITLE><?=$title?> - CodeIgniter 2 Tutorial</TITLE>
+		<TITLE><?=$title?> - Hello, Wild.</TITLE>
 		
 		<LINK href="<?=base_url()?>assets/styles/Normalize/normalize.css" type="text/css" rel="stylesheet" />
 		<LINK href="<?=base_url()?>assets/styles/global.css" type="text/css" rel="stylesheet" />
-		<SCRIPT src="http://cdn.aloha-editor.org/current/lib/aloha.js"
-			data-aloha-plugins="common/format,
-								common/list,
-								common/link,
-								common/highlighteditables">
-		</SCRIPT>
-		<LINK href="http://cdn.aloha-editor.org/current/css/aloha.css" rel="stylesheet" type="text/css" />
+		
+		<!-- Aloha! -->
+		<script src="<?=base_url()?>assets/ex/Aloha/src/lib/aloha.js"
+				data-aloha-plugins="common/format, common/list" ></SCRIPT>
+		<LINK href="<?=base_url()?>assets/ex/Aloha/src/css/aloha.css" rel="stylesheet" type="text/css" />
 	</HEAD>
 	<BODY>
 		<DIV class="centering">

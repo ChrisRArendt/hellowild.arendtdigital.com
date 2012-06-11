@@ -3,12 +3,7 @@ BODY{
 	font-family: sans-serif;
 	color: #333;
 	background: #333 url(../images/bg_texture1.png);
-	
-	
-	
-   margin:0;
-   padding:0;
-   height:100%;
+	height:100%;
 }
 	UL{
 		padding-left: 2em;
@@ -44,6 +39,7 @@ BODY{
 		min-height:100%;
 		width:500px;
 		background:#EEE;
+		box-shadow: 0 0 12px #000;
 	}
 	
 	.create {}
@@ -171,3 +167,6 @@ BODY{
 			font-size: .8em;
 			color:#024A68;
 		}
+			#bottom SMALL A{
+				color:inherit;
+			}

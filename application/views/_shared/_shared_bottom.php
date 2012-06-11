@@ -1,4 +1,3 @@
-				<DIV id="push"></DIV>
 			</DIV><!-- /#content -->
 			
 			<DIV id="bottom">
@@ -13,7 +12,7 @@
 					</UL>
 				</NAV>
 				<SMALL>
-					This is a PHP CodeIgniter and GIT/GitHub study project. &copy; 2012 Arendt Digital.
+					This is a PHP CodeIgniter and GIT/GitHub study project. &copy; 2012 <A href="http://arendtdigital.com/">Arendt Digital</A>.
 				</SMALL>
 			</DIV><!-- /#bottom -->
 			

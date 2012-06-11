@@ -41,8 +41,9 @@
 $route["news/create"] = "news/create";
 $route["news/view/(:any)"] = "news/view/$1";
 $route["news"] = "news/index";
+
 $route["(:any)"] = "home/index";
-$route["default_controller"] = "pages/view";
+$route["default_controller"] = "home/index";
 $route["404_override"] = '';
 
 
