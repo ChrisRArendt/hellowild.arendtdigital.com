@@ -81,7 +81,7 @@
 			$this->load->helper("form");
 			$this->load->library("form_validation");
 			
-			$data["title"] = "Create a news item";
+			$data["title"] = "Create";
 			
 			$this->form_validation->set_rules("title", "Title", "trim|required|min_length[5]|max_length[30]|xss_clean");
 			$this->form_validation->set_rules("text", "text", "trim|required|min_length[10]|max_length[10000]|xss_clean");
