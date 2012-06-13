@@ -8,6 +8,7 @@
 		<LINK href="<?=base_url()?>assets/styles/Normalize/normalize.css" type="text/css" rel="stylesheet" />
 		<LINK href="<?=base_url()?>assets/styles/global.css" type="text/css" rel="stylesheet" />
 		
+		<? include_once __DIR__."/GATrackingCode.php"?>
 	</HEAD>
 	<BODY>
 		<DIV class="centering">
